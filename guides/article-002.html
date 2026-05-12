@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="零号大坝地图完全攻略 - 地形、资源、撤离点详解">
+  <title>零号大坝地图完全攻略 | DELTA FORCE TACTICAL GUIDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/article-detail.css">
+
+  <style>
+    .article-content { line-height: 2; font-size: 16px; }
+    .article-content h2 { margin-top: 40px; margin-bottom: 20px; color: var(--color-primary); border-bottom: 2px solid var(--color-border); padding-bottom: 10px; }
+    .article-content h3 { margin-top: 30px; color: var(--color-text); }
+    .article-content p { margin-bottom: 20px; text-align: justify; }
+    .article-content ul, .article-content ol { margin-left: 30px; margin-bottom: 20px; }
+    .article-content li { margin-bottom: 10px; }
+    .article-content strong { color: var(--color-primary); }
+    .article-content .tip-box { background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,200,255,0.1)); border-left: 4px solid var(--color-accent); padding: 20px; margin: 30px 0; border-radius: 8px; }
+    .article-content .warning-box { background: linear-gradient(135deg, rgba(255,107,107,0.1), rgba(255,165,0,0.1)); border-left: 4px solid #ff6b6b; padding: 20px; margin: 30px 0; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="../index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="../index.html" class="navbar__link">首页</a></li>
+        <li><a href="../articles.html" class="navbar__link active">攻略文章</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="../index.html">首页</a> / 
+      <a href="../articles.html">攻略文章</a> / 
+      <span>零号大坝地图完全攻略</span>
+    </div>
+  </div>
+
+  <main class="article-detail section">
+    <div class="container">
+
+      <header class="article-header">
+        <div class="article-header__meta">
+          <span class="tag tag--intermediate">地图战术</span>
+          <span class="tag">中级难度</span>
+          <time datetime="2026-05-10">2026-05-10 发布</time>
+        </div>
+        
+        <h1 class="article-title">零号大坝地图完全攻略 - S9赛季版</h1>
+        
+        <p class="article-subtitle">地形结构、资源分布、撤离机制全方位解析 - 12分钟阅读</p>
+
+        <div class="article-author">
+          <span class="article-author__avatar">🗺️</span>
+          <div>
+            <strong class="article-author__name">地图专家</strong>
+            <p class="article-author__bio">专注地图战术研究，1000+小时实战经验</p>
+          </div>
+        </div>
+
+        <div class="article-stats">
+          <span>👁️ 18.3K 阅读</span>
+          <span>⭐ 4.8 评分</span>
+          <span>💬 267 评论</span>
+        </div>
+      </header>
+
+      <article class="article-content">
+
+        <h2>一、地图基本概况</h2>
+        
+        <p>零号大坝是所有玩家解锁的第一张地图，设有<strong>普通和机密</strong>两种难度。整张地图以行政楼为中轴分为东西两侧，共设置<strong>14个出生点</strong>，每侧7个，同侧1号点位仅刷新一队，开局碰撞风险较低。</p>
+
+        <h3>核心区域划分</h3>
+        <ul>
+          <li><strong>北部行政楼：</strong>含地下金库，高价值物资密集区</li>
+          <li><strong>西侧水泥厂：</strong>工业风格建筑群，物资丰富</li>
+          <li><strong>东侧主变电站：</strong>电力设施区域，适合过渡补给</li>
+          <li><strong>游客中心：</strong>低风险发育区，适合新手</li>
+        </ul>
+
+        <h2>二、S9赛季地图更新要点</h2>
+
+        <div class="tip-box">
+          <strong>🆕 S9新机制：</strong>
+          <ul>
+            <li>南部河道新增水下游泳机制，可从水下绕至敌人后方</li>
+            <li>新增浴场丢包撤离点和博士秘密撤离点</li>
+            <li>环境交互升级：可破坏墙体、可移动掩体</li>
+            <li>AI势力强化：刷新率提升40%，新增精英守卫</li>
+          </ul>
+        </div>
+
+        <h2>三、核心资源点位详解</h2>
+
+        <h3>S级高价值区域</h3>
+        
+        <p><strong>1. 行政楼（含地下金库）</strong></p>
+        <ul>
+          <li>物资密度：全图最高</li>
+          <li>核心产出：非洲之星、金色配件、高端显卡</li>
+          <li>推荐武器：冲锋枪、霰弹枪（室内近战）</li>
+          <li>注意事项：必遇敌人，建议组队进入</li>
+        </ul>
+
+        <p><strong>2. 水泥厂</strong></p>
+        <ul>
+          <li>特点：多层工业建筑，视野开阔</li>
+          <li>核心产出：3级甲/头盔、高级医疗品</li>
+          <li>战术建议：利用高低差架枪，控制楼梯口</li>
+        </ul>
+
+        <h3>A级过渡区域</h3>
+        <ul>
+          <li><strong>游客中心：</strong>适合前期发育，物资充足且敌人少</li>
+          <li><strong>主变电站：</strong>补充弹药和基础装备的理想地点</li>
+        </ul>
+
+        <h2>四、最优搜刮路线（5分钟速金流）</h2>
+
+        <ol>
+          <li>出生点 → 行政楼后门（清AI捡3级甲）</li>
+          <li>一楼速搜基础装备</li>
+          <li>总裁室开钥匙房获取高价值物品</li>
+          <li>地下金库深度搜刮</li>
+          <li>跳窗转移至水泥厂</li>
+          <li>补充弹药后前往撤离点</li>
+        </ol>
+
+        <div class="warning-box">
+          <strong>⚠️ 注意事项：</strong>
+          <ul>
+            <li>单区域搜刮不超过1分钟，久留易被定位</li>
+            <li>全程保持静音移动，声音比视野更易暴露位置</li>
+            <li>优先填满胸挂再考虑背包，保证战斗时快速换弹</li>
+          </ul>
+        </div>
+
+        <h2>五、四大撤离体系详解</h2>
+
+        <table>
+          <tr>
+            <th>撤离类型</th>
+            <th>代表点位</th>
+            <th>激活条件</th>
+            <th>风险等级</th>
+          </tr>
+          <tr>
+            <td><strong>固定撤离</strong></td>
+            <td>东北/西南河滩</td>
+            <td>无</td>
+            <td>★★★★★（必被蹲）</td>
+          </tr>
+          <tr>
+            <td><strong>拉闸撤离</strong></td>
+            <td>变电站/行政楼</td>
+            <td>手动激活</td>
+            <td>★★★☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>付费撤离</strong></td>
+            <td>浴场丢包</td>
+            <td>丢弃背包</td>
+            <td>★★☆☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>秘密撤离</strong></td>
+            <td>博士撤离</td>
+            <td>特殊条件</td>
+            <td>★☆☆☆☆</td>
+          </tr>
+        </table>
+
+        <h2>六、实战战术打法</h2>
+
+        <h3>1. 劝架战术（S9最强玩法）</h3>
+        <p>大坝地图狭小、声音传播极远。开局保持静音，监听核心区枪声，待两队消耗至残血时从侧翼突袭收割残局，以最低风险获取满配装备。</p>
+
+        <h3>2. 行政楼攻防技巧</h3>
+        <ul>
+          <li><strong>防守方：</strong>一楼依托柱子与墙体卡点，二楼控制楼梯口，地下金库守拐角</li>
+          <li><strong>进攻方：</strong>用烟雾弹封视野，闪光弹突破，M82穿透薄墙打击蹲守敌人</li>
+        </ul>
+
+        <h3>3. 水下绕后突袭</h3>
+        <p>S9新增的水下机制为轻装突袭提供了全新思路。从南部河道潜入，绕至敌人后方出其不意发起攻击，特别适合跑刀玩家。</p>
+
+        <h2>七、干员搭配推荐</h2>
+
+        <h3>进攻阵容</h3>
+        <p><strong>红狼（突击）+ 回响（侦察）+ 蜂医（支援）+ 牧羊人（工程）</strong></p>
+        <ul>
+          <li>红狼承担正面火力输出</li>
+          <li>回响监听敌方动向提供信息</li>
+          <li>蜂医保障团队续航</li>
+          <li>牧羊人设置陷阱控场</li>
+        </ul>
+
+        <h3>防守阵容</h3>
+        <p><strong>深蓝（工程）+ 蛊（支援）+ 露娜（侦察）</strong></p>
+        <ul>
+          <li>深蓝举盾正面承伤</li>
+          <li>蛊释放毒雾封锁通道</li>
+          <li>露娜持续探点预警</li>
+        </ul>
+
+        <h2>八、常见错误与纠正</h2>
+
+        <div class="warning-box">
+          <strong>❌ 大坝地图常见误区：</strong>
+          <ol>
+            <li><strong>开局直冲行政楼</strong> → 正确做法：先在外围发育，装备成型后再进核心区</li>
+            <li><strong>长时间蹲守同一位置</strong> → 正确做法：每30秒换一次位置，避免被预瞄</li>
+            <li><strong>忽视声音管理</strong> → 正确做法：高危区域全程静步，避免暴露位置</li>
+            <li><strong>贪图所有高价值物资</strong> → 正确做法：安全箱存好贵重物品后立即撤离</li>
+          </ol>
+        </div>
+
+        <h2>九、新手专属建议</h2>
+
+        <ul>
+          <li><strong>首选落点：</strong>游客中心或主变电站外围，物资足够且敌人少</li>
+          <li><strong>推荐武器：</strong>M4A1或MP7，稳定性高易上手</li>
+          <li><strong>撤离策略：</strong>优先选择付费撤离或秘密撤离，避免固定点被蹲</li>
+          <li><strong>团队配置：</strong>至少带一个支援兵（蜂医），提升容错率</li>
+        </ul>
+
+        <h2>十、总结</h2>
+
+        <p>零号大坝作为新手启蒙地图，<strong>面积适中、打法自由度高</strong>，无论是全装硬刚还是轻装跑刀都能找到适合自己的节奏。掌握本文的核心战术——<strong>快速搜刮、劝架收割、多线撤离</strong>，你就能在这张地图上稳定收获物资并安全撤离。</p>
+
+        <p>记住：<strong>活着离开才是胜利</strong>。不要因为贪婪而冒险，合理评估风险收益比是成为高手的第一步。</p>
+
+      </article>
+
+      <footer class="article-footer">
+        <div class="article-tags">
+          <span class="tag">地图攻略</span>
+          <span class="tag">零号大坝</span>
+          <span class="tag">S9赛季</span>
+          <span class="tag">战术指南</span>
+        </div>
+
+        <div class="article-nav">
+          <a href="article-001.html" class="article-nav__link article-nav__link--prev">
+            <span>← 上一篇</span>
+            <strong>三角洲行动完全入门指南</strong>
+          </a>
+          <a href="article-003.html" class="article-nav__link article-nav__link--next">
+            <span>下一篇 →</span>
+            <strong>K416突击步枪完全攻略</strong>
+          </a>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 DELTA FORCE TACTICAL GUIDE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

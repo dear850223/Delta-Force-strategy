@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="三角洲行动战术地图库 - 全地图战术分析、点位标注、路线规划">
+  <title>战术地图库 | DELTA FORCE TACTICAL GUIDE</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/maps.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+      
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">首页</a></li>
+        <li><a href="maps.html" class="navbar__link active">战术地图</a></li>
+        <li><a href="weapons.html" class="navbar__link">武器图鉴</a></li>
+        <li><a href="guides.html" class="navbar__link">攻略文库</a></li>
+        <li><a href="articles.html" class="navbar__link">攻略文章</a></li>
+        <li><a href="data.html" class="navbar__link">数据中心</a></li>
+      </ul>
+      
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 页面头部 -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">
+        <span class="page-header__icon">🗺️</span>
+        战术地图库
+      </h1>
+      <p class="page-header__subtitle">
+        全地图战术分析 · 关键点位标注 · 路线规划指南
+      </p>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="section">
+    <div class="container">
+
+      <!-- 地图网格 -->
+      <div class="map-selector__grid">
+
+        <!-- 地图卡片 1: 长弓溪谷 -->
+        <article class="map-card" data-map-id="longa_valley">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">32人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">长弓溪谷</h3>
+            <p class="map-card__name-en">Longa Valley</p>
+            
+            <p class="map-card__description">
+              位于山谷地带的中型地图，融合了开阔田野、密集建筑区和河流通道，适合多种战术风格。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--beginner">团队死斗</span>
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag tag--advanced">搜查摧毁</span>
+              <span class="tag">总部攻防</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🏢 中央指挥楼 - 地图中心的三层建筑，控制后可辐射四周所有区域</li>
+                <li>🌉 溪谷大桥 - 连接东西两岸的唯一桥梁，兵家必争之地</li>
+                <li>🎯 西侧山脊 - 高地狙击点，视野开阔但暴露风险适中</li>
+                <li>🏭 东部工业区 - CQC战斗区域，多层立体结构</li>
+                <li>📦 北部军火库 - 高级装备刷新点</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              优先占领中央指挥楼制高点，控制桥梁交通要道，利用西侧山脊进行远程支援。
+            </div>
+          </div>
+        </article>
+
+        <!-- 地图卡片 2: 沙漠要塞 -->
+        <article class="map-card" data-map-id="desert_fortress">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">40人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">沙漠要塞</h3>
+            <p class="map-card__name-en">Desert Fortress</p>
+            
+            <p class="map-card__description">
+              大型沙漠军事基地地图，包含多层防御工事、地下隧道系统和广阔的沙地区域。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--beginner">团队死斗</span>
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag tag--advanced">搜查摧毁</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🏰 主堡垒塔楼 - 最高点，可俯瞰全图</li>
+                <li>🚪 地下入口系统 - 快速移动通道</li>
+                <li>⛺ 沙漠营地 - 中转补给点</li>
+                <li>🔭 瞭望哨所 - 边缘监控位置</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              利用地下系统快速转移，控制主堡塔楼获得视野优势，注意沙尘暴影响视线。
+            </div>
+          </div>
+        </article>
+
+        <!-- 地图卡片 3: 北极基地 -->
+        <article class="map-card" data-map-id="arctic_base">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">24人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">北极基地</h3>
+            <p class="map-card__name-en">Arctic Base</p>
+            
+            <p class="map-card__description">
+              冰雪环境下的科研基地地图，包含室内实验室、冰面湖泊和雪山区域。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--beginner">团队死斗</span>
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag">总部攻防</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🔬 主实验室 - 核心建筑，多楼层结构</li>
+                <li>❄️ 冰湖区域 - 开阔但地面滑行</li>
+                <li>⛷️ 山坡滑雪道 - 快速机动路线</li>
+                <li>🏠 员工宿舍区 - 密集CQC区域</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              注意冰雪地面滑行效果，室内外温差导致瞄准镜起雾，装备防寒服减少移动惩罚。
+            </div>
+          </div>
+        </article>
+
+        <!-- 地图卡片 4: 都市中心 -->
+        <article class="map-card" data-map-id="urban_center">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">48人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">都市中心</h3>
+            <p class="map-card__name-en">Urban Center</p>
+            
+            <p class="map-card__description">
+              大型城市战场地图，包含摩天大楼、地下停车场、购物中心和街道巷战区域。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--beginner">团队死斗</span>
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag tag--advanced">搜查摧毁</span>
+              <span class="tag">总部攻防</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🏢 中央广场 - 地图核心开放区域</li>
+                <li>🅿️ 地下停车场 - 复杂室内通道</li>
+                <li>🛒 购物中心 - 多层立体战斗空间</li>
+                <li>🌉 天桥系统 - 高架移动路线</li>
+                <li>🏦 金融大厦 - 最高狙击点</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              充分利用垂直空间进行作战，控制天桥系统获得机动优势，注意室内外光线差异。
+            </div>
+          </div>
+        </article>
+
+        <!-- 地图卡片 5: 热带岛屿 -->
+        <article class="map-card" data-map-id="tropical_island">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">28人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">热带岛屿</h3>
+            <p class="map-card__name-en">Tropical Island</p>
+            
+            <p class="map-card__description">
+              海岛主题地图，包含海滩丛林、废弃度假村、海盗洞穴和水上设施。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--beginner">团队死斗</span>
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag">总部攻防</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🏖️ 度假村酒店 - 多层建筑群</li>
+                <li>🌴 丛林密林 - 伏击和隐蔽区域</li>
+                <li>⚓ 港口码头 - 载具登陆点</li>
+                <li>💀 海盗洞穴 - 地下通道系统</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              利用丛林植被隐蔽接近敌人，控制港口载具资源，洞穴内适合霰弹枪作战。
+            </div>
+          </div>
+        </article>
+
+        <!-- 地图卡片 6: 太空站 -->
+        <article class="map-card" data-map-id="space_station">
+          <div class="map-card__image-wrapper">
+            <div class="map-card__placeholder">
+              <svg width="80" height="80" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 8L8 20V44L32 56L56 44V20L32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M32 24V8M32 40V56M20 28L8 20M44 36L56 44M20 36L8 44M44 28L56 20" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="map-card__players">16人</span>
+          </div>
+          
+          <div class="map-card__body">
+            <h3 class="map-card__name">太空站</h3>
+            <p class="map-card__name-en">Space Station</p>
+            
+            <p class="map-card__description">
+              零重力环境下的太空站地图，包含实验室模块、生活区和外部维修通道。
+            </p>
+
+            <div class="map-card__modes">
+              <span class="tag tag--intermediate">占领模式</span>
+              <span class="tag tag--advanced">搜查摧毁</span>
+              <span class="tag">总部攻防</span>
+            </div>
+
+            <div class="map-card__points">
+              <h4 class="map-card__points-title">关键点位</h4>
+              <ul class="map-card__points-list">
+                <li>🛰️ 指挥舱 - 战略控制中心</li>
+                <li>🔬 核心反应堆 - 高风险高回报区域</li>
+                <li>🚪 气闸通道 - 必经之路</li>
+                <li>🔧 维修通道 - 外部移动路线</li>
+              </ul>
+            </div>
+
+            <div class="map-card__tips">
+              <strong>战术建议：</strong>
+              适应零重力跳跃和移动，利用三维空间进行立体作战，注意气闸门控制。
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.map-selector__grid -->
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__section">
+          <h4 class="footer__section-title">关于本站</h4>
+          <p class="text-muted" style="font-size: var(--text-sm); line-height: 1.8;">
+            三角洲行动攻略站是由玩家社区驱动的非官方战术资源平台。<br>
+            我们致力于提供最专业、最准确的游戏攻略和数据。
+          </p>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">快速导航</h4>
+          <a href="index.html" class="footer__link">🏠 首页</a>
+          <a href="weapons.html" class="footer__link">🔫 武器图鉴</a>
+          <a href="guides.html" class="footer__link">📖 攻略文库</a>
+          <a href="data.html" class="footer__link">📊 数据中心</a>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">热门地图</h4>
+          <a href="#longa_valley" class="footer__link">长弓溪谷</a>
+          <a href="#desert_fortress" class="footer__link">沙漠要塞</a>
+          <a href="#urban_center" class="footer__link">都市中心</a>
+          <a href="#arctic_base" class="footer__link">北极基地</a>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">相关攻略</h4>
+          <a href="guides.html#map-guide-longa-valley" class="footer__link">长弓溪谷详解</a>
+          <a href="guides.html#mode-guide-domination" class="footer__link">占领模式指南</a>
+          <a href="guides.html#tactical-positioning" class="footer__link">战术站位技巧</a>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>
+          © 2026 Delta Force Tactical Guide | 
+          <a href="#">隐私政策</a> · 
+          <a href="#">使用条款</a> · 
+          <a href="#">联系我们</a>
+        </p>
+        <p style="margin-top: var(--space-sm); opacity: 0.6;">
+          本站为玩家自制非官方网站，与游戏官方无关。
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

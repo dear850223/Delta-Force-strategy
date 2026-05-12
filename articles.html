@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="三角洲行动攻略文章库 - 收录100+篇深度攻略文章，涵盖新手指南、进阶技巧、武器攻略、地图攻略">
+  <title>攻略文章库 | DELTA FORCE TACTICAL GUIDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/articles.css">
+
+  <style>
+    .article-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,255,65,0.15); }
+    .article-card__header { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .article-card__category { 
+      padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      background: linear-gradient(135deg, rgba(0,255,65,0.2), rgba(0,212,255,0.2));
+      color: #00ff41; border: 1px solid rgba(0,255,65,0.3);
+    }
+    .article-card__subcategory { padding: 4px 12px; border-radius: 20px; font-size: 12px; background: rgba(255,255,255,0.05); color: var(--color-text-muted); }
+    .article-card__title { margin: 0 0 10px 0; font-size: 18px; line-height: 1.4; }
+    .article-card__title a { color: var(--color-text); text-decoration: none; transition: color 0.2s; }
+    .article-card__title a:hover { color: var(--color-primary); }
+    .article-card__summary { color: var(--color-text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .article-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .article-card__tag { font-size: 11px; padding: 3px 8px; background: rgba(0,212,255,0.1); color: #00d4ff; border-radius: 4px; }
+    .article-card__meta { display: flex; flex-wrap: wrap; gap: 15px; font-size: 13px; color: var(--color-text-muted); }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 30px; }
+    @media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">首页</a></li>
+        <li><a href="maps.html" class="navbar__link">战术地图</a></li>
+        <li><a href="weapons.html" class="navbar__link">武器图鉴</a></li>
+        <li><a href="guides.html" class="navbar__link">攻略文库</a></li>
+        <li><a href="articles.html" class="navbar__link active">攻略文章</a></li>
+        <li><a href="data.html" class="navbar__link">数据中心</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 页面头部 -->
+  <header class="articles-hero">
+    <div class="container">
+      <div class="articles-hero__content">
+        <h1 class="articles-hero__title">
+          <span class="articles-hero__icon">📰</span>
+          攻略文章库
+        </h1>
+        <p class="articles-hero__subtitle">
+          深度战术攻略文章合集 &middot; 持续更新中
+        </p>
+
+        <div class="articles-hero__stats">
+          <div class="articles-hero__stat">
+            <span class="articles-hero__stat-value">25+</span>
+            <span class="articles-hero__stat-label">篇文章</span>
+          </div>
+          <div class="articles-hero__stat">
+            <span class="articles-hero__stat-value">6</span>
+            <span class="articles-hero__stat-label">个分类</span>
+          </div>
+          <div class="articles-hero__stat">
+            <span class="articles-hero__stat-value">原创</span>
+            <span class="articles-hero__stat-label">内容来源</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="section">
+    <div class="container">
+
+      <!-- 分类筛选 -->
+      <div style="margin: 30px 0; display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="#all" class="tag tag--beginner" style="text-decoration:none;">全部 (25)</a>
+        <a href="#beginner" class="tag" style="text-decoration:none;background:rgba(0,255,65,0.1)">新手指南 (5)</a>
+        <a href="#weapons" class="tag" style="text-decoration:none;background:rgba(0,212,255,0.1)">武器攻略 (6)</a>
+        <a href="#maps" class="tag" style="text-decoration:none;background:rgba(255,215,0,0.1)">地图攻略 (5)</a>
+        <a href="#tactics" class="tag" style="text-decoration:none;background:rgba(168,85,247,0.1)">进阶战术 (5)</a>
+        <a href="#mode" class="tag" style="text-decoration:none;background:rgba(255,107,53,0.1)">模式专精 (4)</a>
+      </div>
+
+      <!-- 文章网格 -->
+      <div class="articles-grid">
+
+        <!-- 文章 1 -->
+        <article class="article-card" data-category="beginner">
+          <div class="article-card__header">
+            <span class="article-card__category">新手指南</span>
+            <span class="article-card__subcategory">入门必读</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/beginner-getting-started.html">新手入门指南：从零开始成为特种兵</a>
+          </h3>
+          <p class="article-card__summary">本指南将带你了解三角洲行动的基础知识，包括界面操作、武器选择、基本战术和常见错误。无论你是FPS新手还是从其他游戏转过来的玩家，都能从这里找到有用的信息。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#新手教程</span>
+            <span class="article-card__tag">#基础操作</span>
+            <span class="article-card__tag">#界面解读</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 战术顾问</span>
+            <span>✍ 官方团队</span>
+            <span>📅 2026-05-01</span>
+          </div>
+        </article>
+
+        <!-- 文章 2 -->
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">突击步枪</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/weapon-guide-m4a1.html">M4A1突击步枪完全手册：配件与战术</a>
+          </h3>
+          <p class="article-card__summary">M4A1是三角洲行动中最受欢迎的突击步枪之一，以其均衡的性能和可控的后坐力著称。本手册将深入分析M4A1的各项属性、配件选择、使用场景和进阶技巧。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#M4A1</span>
+            <span class="article-card__tag">#配件推荐</span>
+            <span class="article-card__tag">#压枪技巧</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 武器专家</span>
+            <span>✍ 数据分析组</span>
+            <span>📅 2026-04-28</span>
+          </div>
+        </article>
+
+        <!-- 文章 3 -->
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">长弓溪谷</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/map-guide-longa-valley.html">长弓溪谷地图详解：路线与卡点</a>
+          </h3>
+          <p class="article-card__summary">长弓溪谷是三角洲行动中最经典的中型地图，融合了开阔田野、密集建筑区和河流通道。本攻略将详细分析每个关键点位、推荐路线和不同模式的战术要点。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#长弓溪谷</span>
+            <span class="article-card__tag">#点位分析</span>
+            <span class="article-card__tag">#路线规划</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 地图分析师</span>
+            <span>✍ 战术研究部</span>
+            <span>📅 2026-04-25</span>
+          </div>
+        </article>
+
+        <!-- 文章 4 -->
+        <article class="article-card" data-category="mode">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ff6b35;color:#ff6b35;border-color:rgba(255,107,53,0.3);background:linear-gradient(135deg,rgba(255,107,53,0.2),rgba(255,107,53,0.1))">模式专精</span>
+            <span class="article-card__subcategory">占领模式</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/mode-guide-domination.html">占领模式完全指南：点位控制的艺术</a>
+          </h3>
+          <p class="article-card__summary">占领模式是三角洲行动中最考验团队配合的模式之一。本指南将从点位价值评估、攻防转换时机、兵力分配等方面，全面讲解如何在这个模式中取得胜利。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#占领模式</span>
+            <span class="article-card__tag">#团队战术</span>
+            <span class="article-card__tag">#点位控制</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 点位控制专家</span>
+            <span>✍ 竞技研究组</span>
+            <span>📅 2026-04-20</span>
+          </div>
+        </article>
+
+        <!-- 文章 5 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">站位与预瞄</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/tactical-positioning.html">战术站位与预瞄：提升生存率的关键</a>
+          </h3>
+          <p class="article-card__summary">站位和预瞄是区分普通玩家和高手的分水岭。正确的站位能让你在遭遇战中占据先机，而良好的预瞄习惯则能大幅缩短反应时间。本教程将通过大量实例教你掌握这些核心技能。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#站位技巧</span>
+            <span class="article-card__tag">#预瞄方法</span>
+            <span class="article-card__tag">#身法</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 职业教练</span>
+            <span>✍ 高级战术组</span>
+            <span>📅 2026-04-15</span>
+          </div>
+        </article>
+
+        <!-- 文章 6 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">团队配合</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/advanced-teamwork.html">团队协同进阶：从单兵到特种小队</a>
+          </h3>
+          <p class="article-card__summary">在三角洲行动中，个人技术固然重要，但团队配合作战才是制胜的关键。本攻略将深入探讨如何建立有效的团队沟通、角色分工、协同战术，让你的小队战斗力倍增。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#团队协作</span>
+            <span class="article-card__tag">#沟通技巧</span>
+            <span class="article-card__tag">#角色分工</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 战术教官</span>
+            <span>✍ 团队研究部</span>
+            <span>📅 2026-04-10</span>
+          </div>
+        </article>
+
+        <!-- 文章 7 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">经济系统</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/economy-guide.html">经济系统与装备管理指南</a>
+          </h3>
+          <p class="article-card__summary">合理分配资源，打造最强装备配置。本指南将详解游戏中的经济机制、装备优先级排序以及不同资金状况下的购买策略，帮助你在每一轮都做出最优决策。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#经济运营</span>
+            <span class="article-card__tag">#装备管理</span>
+            <span class="article-card__tag">#资源优化</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 经济学家</span>
+            <span>✍ 数据分析组</span>
+            <span>📅 2026-04-08</span>
+          </div>
+        </article>
+
+        <!-- 文章 8 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">射击训练</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/recoil-control.html">压枪与后坐力控制精通</a>
+          </h3>
+          <p class="article-card__summary">掌握每把武器的弹道特性，实现精准连续射击。本教程将深入解析各类武器的后坐力模式、压枪技巧以及训练方法，帮助你成为射击大师。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#压枪技巧</span>
+            <span class="article-card__tag">#后坐力控制</span>
+            <span class="article-card__tag">#射击训练</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 射击教练</span>
+            <span>✍ 武器测试组</span>
+            <span>📅 2026-04-05</span>
+          </div>
+        </article>
+
+        <!-- 文章 9 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">感官训练</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/sound-positioning.html">声音辨位与环境感知训练</a>
+          </h3>
+          <p class="article-card__summary">通过听觉获取战场信息，先敌发现先敌击杀。本教程将教你如何通过声音判断敌人位置、距离和行为意图，大幅提升你的战场感知能力。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#听声辨位</span>
+            <span class="article-card__tag">#环境感知</span>
+            <span class="article-card__tag">#音频设置</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 听声大师</span>
+            <span>✍ 感官训练组</span>
+            <span>📅 2026-04-02</span>
+          </div>
+        </article>
+
+        <!-- 文章 10 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">心理博弈</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/psychological-warfare.html">心理战与诱敌技巧</a>
+          </h3>
+          <p class="article-card__summary">利用对手心理弱点，制造假象取得战术优势。本高级教程将揭示常见玩家心理弱点、诱敌战术以及反心理战策略，让你在心理层面压制对手。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#心理战术</span>
+            <span class="article-card__tag">#诱敌技巧</span>
+            <span class="article-card__tag">#博弈论</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 心理学家</span>
+            <span>✍ 行为研究组</span>
+            <span>📅 2026-03-28</span>
+          </div>
+        </article>
+
+        <!-- 文章 11 -->
+        <article class="article-card" data-category="tactics">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#a855f7;color:#a855f7;border-color:rgba(168,85,247,0.3);background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.1))">进阶战术</span>
+            <span class="article-card__subcategory">载具战斗</span>
+          </div>
+          <h3 class="article-card__title">
+            <a href="guides/vehicle-tactics.html">载具使用与反载具战术</a>
+          </h3>
+          <p class="article-card__summary">掌握载具驾驶技巧，有效应对敌方装甲威胁。本指南涵盖各类载具特点、驾驶技巧、反装甲手段以及载具协同战术，让你在机械化作战中游刃有余。</p>
+          <div class="article-card__tags">
+            <span class="article-card__tag">#载具驾驶</span>
+            <span class="article-card__tag">#反坦克战术</span>
+            <span class="article-card__tag">#装甲战斗</span>
+          </div>
+          <div class="article-card__meta">
+            <span>📰 载具专家</span>
+            <span>✍ 载具研究组</span>
+            <span>📅 2026-03-25</span>
+          </div>
+        </article>
+
+        <!-- 文章 12-25: 更多文章（简化展示） -->
+        <article class="article-card" data-category="beginner">
+          <div class="article-card__header">
+            <span class="article-card__category">新手指南</span>
+            <span class="article-card__subcategory">键位设置</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">最佳键位设置方案推荐</a></h3>
+          <p class="article-card__summary">详细介绍适合不同玩法的键位设置方案，包括鼠标灵敏度、快捷键绑定等，帮助你找到最舒适的操作方式。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#设置</span><span class="article-card__tag">#操作优化</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-20</span></div>
+        </article>
+
+        <article class="article-card" data-category="beginner">
+          <div class="article-card__header">
+            <span class="article-card__category">新手指南</span>
+            <span class="article-card__subcategory">常见错误</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">新手最容易犯的10个错误及纠正方法</a></h3>
+          <p class="article-card__summary">总结新手玩家最常见的错误行为，提供具体的纠正建议和训练方法，帮你快速避开这些坑。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#避坑指南</span><span class="article-card__tag">#经验总结</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-18</span></div>
+        </article>
+
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">冲锋枪</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">MP5 vs UMP45：室内之王对决</a></h3>
+          <p class="article-card__summary">两款最受欢迎的冲锋枪深度对比，从伤害、射速、后坐力等多维度分析，帮你选择最适合的CQC武器。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#SMG对比</span><span class="article-card__tag">#CQC</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-15</span></div>
+        </article>
+
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">狙击步枪</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">狙击手养成指南：从菜鸟到神狙</a></h3>
+          <p class="article-card__summary">全面的狙击手训练指南，包括狙击位选择、预判射击、反狙击技巧等内容，助你成为战场上的致命杀手。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#狙击</span><span class="article-card__tag">#远程作战</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-12</span></div>
+        </article>
+
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">霰弹枪</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">霰弹枪近距离实战技巧全解</a></h3>
+          <p class="article-card__summary">霰弹枪在近距离作战中的独特优势和使用技巧，包括弹道扩散、有效距离、连发节奏等关键要素。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#霰弹枪</span><span class="article-card__tag">#近战</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-10</span></div>
+        </article>
+
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">轻机枪</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">LMG火力压制战术：持续输出的艺术</a></h3>
+          <p class="article-card__summary">轻机枪在团队中的定位和使用方法，如何利用高弹匣容量进行火力压制，为队友创造进攻机会。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#LMG</span><span class="article-card__tag">#火力压制</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-08</span></div>
+        </article>
+
+        <article class="article-card" data-category="weapons">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#00d4ff;color:#00d4ff;border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.1))">武器攻略</span>
+            <span class="article-card__subcategory">手枪</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">副武器选择指南：手枪还是冲锋手枪？</a></h3>
+          <p class="article-card__summary">主武器弹药耗尽时的最后防线，副武器的选择和使用时机对生存至关重要。本文帮你找到最适合的搭配。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#副武器</span><span class="article-card__tag">#应急武器</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-05</span></div>
+        </article>
+
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">沙漠要塞</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">沙漠要塞地下隧道系统完全解析</a></h3>
+          <p class="article-card__summary">沙漠要塞复杂的地下通道网络详解，包括所有入口出口、关键节点、伏击位置以及如何有效利用这些通道进行快速转移。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#沙漠要塞</span><span class="article-card__tag">#地道战</span></div>
+          <div class="article-card__meta"><span>📅 2026-03-02</span></div>
+        </article>
+
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">都市中心</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">都市中心垂直作战指南：高楼战术</a></h3>
+          <p class="article-card__summary">都市中心地图中摩天大楼的垂直作战技巧，包括楼层控制、高空跳伞、窗户作战等特殊战术。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#都市中心</span><span class="article-card__tag">#立体作战</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-28</span></div>
+        </article>
+
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">北极基地</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">北极基地冰雪环境特殊战术</a></h3>
+          <p class="article-card__summary">北极基地独特的冰雪环境带来的特殊玩法，包括冰面滑行效果、雪地隐蔽、温差影响等环境因素应对策略。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#北极基地</span><span class="article-card__tag">#环境战术</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-25</span></div>
+        </article>
+
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">热带岛屿</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">热带岛屿丛林游击战术</a></h3>
+          <p class="article-card__summary">热带岛屿茂密丛林中的游击战术，利用植被隐蔽、水路机动、洞穴伏击等特色打法详解。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#热带岛屿</span><span class="article-card__tag">#丛林战</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-22</span></div>
+        </article>
+
+        <article class="article-card" data-category="maps">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ffd700;color:#ffd700;border-color:rgba(255,215,0,0.3);background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(255,215,0,0.1))">地图攻略</span>
+            <span class="article-card__subcategory">太空站</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">太空站零重力作战完全指南</a></h3>
+          <p class="article-card__summary">太空站独特的零重力环境带来全新的作战体验，三维空间移动、无重力跳跃、气闸门控制等特殊机制详解。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#太空站</span><span class="article-card__tag">#零重力</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-20</span></div>
+        </article>
+
+        <article class="article-card" data-category="mode">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ff6b35;color:#ff6b35;border-color:rgba(255,107,53,0.3);background:linear-gradient(135deg,rgba(255,107,53,0.2),rgba(255,107,53,0.1))">模式专精</span>
+            <span class="article-card__subcategory">搜查摧毁</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">搜查摧毁模式：安装与拆除的艺术</a></h3>
+          <p class="article-card__summary">搜查摧毁模式的深度攻略，包括炸弹安装位置选择、防守布局、拆除技巧以及残局处理策略。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#搜查摧毁</span><span class="article-card__tag">#爆破战术</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-18</span></div>
+        </article>
+
+        <article class="article-card" data-category="mode">
+          <div class="article-card__header">
+            <span class="article-card__category" style="--cat-color:#ff6b35;color:#ff6b35;border-color:rgba(255,107,53,0.3);background:linear-gradient(135deg,rgba(255,107,53,0.2),rgba(255,107,53,0.1))">模式专精</span>
+            <span class="article-card__subcategory">总部攻防</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">总部攻防模式：攻守转换时机把握</a></h3>
+          <p class="article-card__summary">总部攻防模式的攻守平衡之道，何时该全力进攻、何时该稳固防守、如何根据比分调整策略。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#HQ攻防</span><span class="article-card__tag">#攻守转换</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-15</span></div>
+        </article>
+
+        <article class="article-card" data-category="beginner">
+          <div class="article-card__header">
+            <span class="article-card__category">新手指南</span>
+            <span class="article-card__subcategory">成长路径</span>
+          </div>
+          <h3 class="article-card__title"><a href="#">前50小时成长路线规划图</a></h3>
+          <p class="article-card__summary">为新手玩家制定的详细成长计划，按小时划分学习目标，从基础操作到高级战术的循序渐进之路。</p>
+          <div class="article-card__tags"><span class="article-card__tag">#成长计划</span><span class="article-card__tag">#学习路线</span></div>
+          <div class="article-card__meta"><span>📅 2026-02-12</span></div>
+        </article>
+
+      </div><!-- /.articles-grid -->
+
+      <!-- 加载更多提示 -->
+      <div style="text-align: center; margin: 50px 0; padding: 30px; background: rgba(0,255,65,0.05); border-radius: 12px; border: 1px dashed rgba(0,255,65,0.2);">
+        <p style="color: var(--color-primary); font-size: 16px; margin: 0;">
+          📚 更多精彩文章正在整理中...<br>
+          <span style="font-size: 14px; opacity: 0.7; margin-top: 10px; display: inline-block;">
+            目前已收录 <strong>25</strong> 篇核心攻略文章
+          </span>
+        </p>
+      </div>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__section">
+          <h4 class="footer__section-title">关于本站</h4>
+          <p class="text-muted" style="font-size: var(--text-sm); line-height: 1.8;">
+            三角洲行动攻略站是由玩家社区驱动的非官方战术资源平台。<br>
+            我们致力于提供最专业、最准确的游戏攻略和数据。
+          </p>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">快速导航</h4>
+          <a href="index.html" class="footer__link">🏠 首页</a>
+          <a href="maps.html" class="footer__link">🗺️ 战术地图</a>
+          <a href="weapons.html" class="footer__link">🔫 武器图鉴</a>
+          <a href="data.html" class="footer__link">📊 数据中心</a>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">攻略分类</h4>
+          <a href="guides.html" class="footer__link">📖 攻略文库</a>
+          <a href="#beginner" class="footer__link">新手指南</a>
+          <a href="#weapons" class="footer__link">武器攻略</a>
+          <a href="#tactics" class="footer__link">进阶战术</a>
+        </div>
+        
+        <div class="footer__section">
+          <h4 class="footer__section-title">热门文章</h4>
+          <a href="guides/beginner-getting-started.html" class="footer__link">新手入门指南</a>
+          <a href="guides/weapon-guide-m4a1.html" class="footer__link">M4A1完全手册</a>
+          <a href="guides/mode-guide-domination.html" class="footer__link">占领模式指南</a>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>
+          © 2026 Delta Force Tactical Guide | 
+          <a href="#">隐私政策</a> · 
+          <a href="#">联系我们</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

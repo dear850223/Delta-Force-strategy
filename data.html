@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="三角洲行动数据中心 - TTK排行榜、伤害计算器、弹道模拟器、版本对比分析">
+  <title>数据中心 | DELTA FORCE TACTICAL GUIDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/data.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">首页</a></li>
+        <li><a href="maps.html" class="navbar__link">战术地图</a></li>
+        <li><a href="weapons.html" class="navbar__link">武器图鉴</a></li>
+        <li><a href="guides.html" class="navbar__link">攻略文库</a></li>
+        <li><a href="articles.html" class="navbar__link">攻略文章</a></li>
+        <li><a href="data.html" class="navbar__link active">数据中心</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 页面头部 -->
+  <header class="data-hero">
+    <div class="container">
+      <div class="data-hero__content">
+        <h1 class="data-hero__title">
+          <span class="data-hero__icon">📊</span>
+          数据中心
+        </h1>
+        <p class="data-hero__subtitle">
+          TTK击杀排行 &middot; 伤害深度计算 &middot; 弹道物理模拟 &middot; 版本数值对比
+        </p>
+        <div class="data-hero__stats">
+          <div class="data-hero__stat">
+            <span class="data-hero__stat-value">8</span>
+            <span class="data-hero__stat-label">武器数据</span>
+          </div>
+          <div class="data-hero__stat">
+            <span class="data-hero__stat-value">4</span>
+            <span class="data-hero__stat-label">分析工具</span>
+          </div>
+          <div class="data-hero__stat">
+            <span class="data-hero__stat-value">v2.1</span>
+            <span class="data-hero__stat-label">数据版本</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="section">
+    <div class="container">
+
+      <!-- 功能模块Tab导航 -->
+      <nav class="data-tabs" id="dataTabs" role="tablist" aria-label="数据分析工具切换">
+        <button class="data-tab active" data-tab="ttk" role="tab" aria-selected="true" aria-controls="panel-ttk">
+          <span class="data-tab__icon">⚡</span>
+          <span class="data-tab__label">TTK排行榜</span>
+        </button>
+        <button class="data-tab" data-tab="calculator" role="tab" aria-selected="false" aria-controls="panel-calculator">
+          <span class="data-tab__icon">🧮</span>
+          <span class="data-tab__label">伤害计算器</span>
+        </button>
+        <button class="data-tab" data-tab="ballistics" role="tab" aria-selected="false" aria-controls="panel-ballistics">
+          <span class="data-tab__icon">🎯</span>
+          <span class="data-tab__label">弹道模拟器</span>
+        </button>
+        <button class="data-tab" data-tab="version" role="tab" aria-selected="false" aria-controls="panel-version">
+          <span class="data-tab__icon">📈</span>
+          <span class="data-tab__label">版本对比</span>
+        </button>
+      </nav>
+
+      <!-- ===== 面板1: TTK排行榜 ===== -->
+      <section class="data-panel active" id="panel-ttk" role="tabpanel" aria-labelledby="tab-ttk">
+        <div class="data-panel__header">
+          <h2 class="data-panel__title">
+            ⚡ Time-To-Kill 击杀时间排行榜
+          </h2>
+          <p class="data-panel__desc">基于各护甲等级下的理论最小TTK排序，数值越低击杀效率越高</p>
+        </div>
+
+        <!-- 筛选工具栏 -->
+        <div class="ttk-toolbar">
+          <div class="ttk-toolbar__filters">
+            <div class="ttk-filter-group">
+              <label class="ttk-filter-group__label">护甲等级</label>
+              <div class="ttk-filter-buttons" id="armorFilterBtns" role="group" aria-label="护甲等级筛选">
+                <button class="ttk-filter-btn active" data-armor="noArmor">无甲</button>
+                <button class="ttk-filter-btn" data-armor="level1">1级</button>
+                <button class="ttk-filter-btn" data-armor="level2">2级</button>
+                <button class="ttk-filter-btn" data-armor="level3">3级</button>
+              </div>
+            </div>
+            <div class="ttk-filter-group">
+              <label class="ttk-filter-group__label">命中部位</label>
+              <select class="ttk-select" id="hitZoneSelect" aria-label="命中部位选择">
+                <option value="body">躯干</option>
+                <option value="head">头部</option>
+              </select>
+            </div>
+          </div>
+          <div class="ttk-toolbar__legend">
+            <span class="ttk-legend-item"><span class="ttk-legend-dot ttk-legend-dot--gold"></span>TOP1</span>
+            <span class="ttk-legend-item"><span class="ttk-legend-dot ttk-legend-dot--silver"></span>TOP2</span>
+            <span class="ttk-legend-item"><span class="ttk-legend-dot ttk-legend-dot--bronze"></span>TOP3</span>
+          </div>
+        </div>
+
+        <!-- TTK排行榜表格 -->
+        <div class="table-wrapper ttk-table-wrapper">
+          <table class="table ttk-table" id="ttkTable">
+            <thead>
+              <tr>
+                <th class="ttk-table__rank-col" data-sort="rank">#</th>
+                <th data-sort="name">武器名称</th>
+                <th data-sort="type">类型</th>
+                <th data-sort="damage">基础伤害</th>
+                <th data-sort="ttk" class="sortable active sort-asc">
+                  TTK (秒)
+                  <span class="sort-arrows">
+                    <span class="sort-arrow up">▲</span>
+                    <span class="sort-arrow down">▼</span>
+                  </span>
+                </th>
+                <th data-sort="shots">所需发数</th>
+                <th data-sort="velocity">弹速(m/s)</th>
+              </tr>
+            </thead>
+            <tbody id="ttkTableBody">
+              <!-- JS动态渲染 -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TTK统计摘要卡片 -->
+        <div class="ttk-summary-grid" id="ttkSummaryGrid">
+          <!-- JS动态渲染 -->
+        </div>
+      </section>
+
+      <!-- ===== 面板2: 伤害计算器 ===== -->
+      <section class="data-panel" id="panel-calculator" role="tabpanel" aria-labelledby="tab-calculator">
+        <div class="data-panel__header">
+          <h2 class="data-panel__title">
+            🧮 武器伤害计算器
+          </h2>
+          <p class="data-panel__desc">选择武器、距离和护甲等级，实时计算实际伤害与击杀数据</p>
+        </div>
+
+        <div class="calc-layout">
+          <!-- 左侧：参数输入区 -->
+          <div class="calc-input-panel card">
+            <h3 class="calc-panel-title">参数配置</h3>
+
+            <!-- 武器选择 -->
+            <div class="calc-form-group">
+              <label class="calc-label" for="calcWeaponSelect">选择武器</label>
+              <select class="calc-select" id="calcWeaponSelect">
+                <!-- JS动态填充 -->
+              </select>
+            </div>
+
+            <!-- 距离滑块 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                目标距离
+                <span class="calc-label__value" id="calcDistanceValue">25m</span>
+              </label>
+              <input type="range" class="calc-slider" id="calcDistanceSlider"
+                     min="0" max="150" value="25" step="5"
+                     aria-label="目标距离调节">
+              <div class="calc-slider-marks">
+                <span>0m</span><span>50m</span><span>100m</span><span>150m</span>
+              </div>
+            </div>
+
+            <!-- 护甲等级 -->
+            <div class="calc-form-group">
+              <label class="calc-label" for="calcArmorSelect">护甲等级</label>
+              <select class="calc-select" id="calcArmorSelect">
+                <option value="0">无护甲 (0)</option>
+                <option value="1">1级护甲 (100HP)</option>
+                <option value="2" selected>2级护甲 (150HP)</option>
+                <option value="3">3级护甲 (200HP)</option>
+              </select>
+            </div>
+
+            <!-- 命中部位 -->
+            <div class="calc-form-group">
+              <label class="calc-label" for="calcHitZoneSelect">命中部位</label>
+              <select class="calc-select" id="calcHitZoneSelect">
+                <option value="body">躯干 (x1.0)</option>
+                <option value="head">头部 (按倍率)</option>
+                <option value="leg">腿部 (x0.9)</option>
+              </select>
+            </div>
+
+            <button class="btn btn--primary btn--lg calc-calc-btn" id="calcRunBtn">
+              ▶ 执行计算
+            </button>
+          </div>
+
+          <!-- 右侧：结果展示区 -->
+          <div class="calc-result-panel">
+            <!-- 核心结果卡片 -->
+            <div class="calc-result-main card">
+              <div class="calc-result-main__grid">
+                <div class="calc-result-big">
+                  <span class="calc-result-big__label">单发伤害</span>
+                  <span class="calc-result-big__value" id="calcDamageResult">--</span>
+                </div>
+                <div class="calc-result-big">
+                  <span class="calc-result-big__label">击杀发数</span>
+                  <span class="calc-result-big__value" id="calcShotsResult">--</span>
+                </div>
+                <div class="calc-result-big calc-result-big--highlight">
+                  <span class="calc-result-big__label">TTK时间</span>
+                  <span class="calc-result-big__value" id="calcTtkResult">--</span>
+                </div>
+                <div class="calc-result-big">
+                  <span class="calc-result-big__label">飞行时间</span>
+                  <span class="calc-result-big__value" id="calcFlightTime">--</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 伤害衰减可视化 -->
+            <div class="card calc-decay-chart">
+              <h4 class="calc-section-title">伤害距离衰减曲线</h4>
+              <canvas id="calcDecayCanvas" width="600" height="200"></canvas>
+            </div>
+
+            <!-- 各护甲等级对比条形图 -->
+            <div class="card calc-compare-bars">
+              <h4 class="calc-section-title">各护甲等级击杀效率对比</h4>
+              <div class="calc-bars-container" id="calcBarsContainer">
+                <!-- JS动态渲染 -->
+              </div>
+            </div>
+
+            <!-- 公式说明 -->
+            <div class="card calc-formula-card">
+              <h4 class="calc-section-title">📐 计算公式</h4>
+              <div class="calc-formula-content" id="calcFormulaContent">
+                <!-- JS动态渲染 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 面板3: 弹道模拟器 ===== -->
+      <section class="data-panel" id="panel-ballistics" role="tabpanel" aria-labelledby="tab-ballistics">
+        <div class="data-panel__header">
+          <h2 class="data-panel__title">
+            🎯 弹道物理模拟器
+          </h2>
+          <p class="data-panel__desc">基于简化物理模型实时绘制弹道轨迹，支持参数调节与动画回放</p>
+        </div>
+
+        <div class="ballistics-layout">
+          <!-- Canvas绘图区 -->
+          <div class="ballistics-canvas-wrap">
+            <canvas id="ballisticsCanvas" class="ballistics-canvas"></canvas>
+            <div class="ballistics-overlay-info" id="ballisticsOverlayInfo">
+              <!-- 实时坐标信息 -->
+            </div>
+          </div>
+
+          <!-- 右侧参数控制面板 -->
+          <div class="ballistics-control-panel card">
+            <h3 class="calc-panel-title">弹道参数</h3>
+
+            <!-- 初速度 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                初速度 V₀
+                <span class="calc-label__value" id="velocityValue">780 m/s</span>
+              </label>
+              <input type="range" class="calc-slider ballistics-slider"
+                     id="velocitySlider" min="200" max="1200" value="780" step="10"
+                     aria-label="初速度调节">
+              <div class="param-hint">子弹离开枪口的初始速度</div>
+            </div>
+
+            <!-- 发射角度 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                发射角度 θ
+                <span class="calc-label__value" id="angleValue">15°</span>
+              </label>
+              <input type="range" class="calc-slider ballistics-slider"
+                     id="angleSlider" min="0" max="90" value="15" step="1"
+                     aria-label="发射角度调节">
+              <div class="param-hint">相对于水平面的仰角</div>
+            </div>
+
+            <!-- 弹头质量 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                弹头质量 m
+                <span class="calc-label__value" id="massValue">8.0 g</span>
+              </label>
+              <input type="range" class="calc-slider ballistics-slider"
+                     id="massSlider" min="3" max="20" value="8" step="0.5"
+                     aria-label="弹头质量调节">
+              <div class="param-hint">影响空气阻力系数</div>
+            </div>
+
+            <!-- 空气阻力系数 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                阻力系数 Cd
+                <span class="calc-label__value" id="dragValue">0.30</span>
+              </label>
+              <input type="range" class="calc-slider ballistics-slider"
+                     id="dragSlider" min="0.1" max="0.8" value="0.30" step="0.01"
+                     aria-label="阻力系数调节">
+              <div class="param-hint">空气动力学阻力系数</div>
+            </div>
+
+            <!-- 风速 -->
+            <div class="calc-form-group">
+              <label class="calc-label">
+                横向风速
+                <span class="calc-label__value" id="windValue">0 m/s</span>
+              </label>
+              <input type="range" class="calc-slider ballistics-slider"
+                     id="windSlider" min="-15" max="15" value="0" step="1"
+                     aria-label="横向风速调节">
+              <div class="param-hint">正值=向右偏，负值=向左偏</div>
+            </div>
+
+            <!-- 操作按钮组 -->
+            <div class="ballistics-btn-group">
+              <button class="btn btn--primary" id="ballisticsFireBtn">🔥 发射</button>
+              <button class="btn" id="ballisticsResetBtn">↺ 重置</button>
+              <button class="btn" id="ballisticsAnimateBtn">▶ 动画</button>
+            </div>
+
+            <!-- 物理数据显示 -->
+            <div class="ballistics-physics-data" id="physicsDataPanel">
+              <h4 class="calc-section-title">物理数据</h4>
+              <div class="physics-data-grid">
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">水平射程</span>
+                  <span class="physics-data-cell__value" id="physRange">-- m</span>
+                </div>
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">最大高度</span>
+                  <span class="physics-data-cell__value" id="physMaxH">-- m</span>
+                </div>
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">飞行时间</span>
+                  <span class="physics-data-cell__value" id="physTime">-- s</span>
+                </div>
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">落点速度</span>
+                  <span class="physics-data-cell__value" id="physImpactV">-- m/s</span>
+                </div>
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">动能损失</span>
+                  <span class="physics-data-cell__value" id="physEnergyLoss">-- %</span>
+                </div>
+                <div class="physics-data-cell">
+                  <span class="physics-data-cell__label">落点偏移</span>
+                  <span class="physics-data-cell__value" id="physDrift">-- m</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 物理公式展示 -->
+            <div class="ballistics-formula-display card">
+              <h4 class="calc-section-title">📐 弹道方程</h4>
+              <div class="formula-block" id="ballisticsFormulaDisplay">
+                <div class="formula-line">x(t) = V₀·cos(θ)·t</div>
+                <div class="formula-line">y(t) = V₀·sin(θ)·t - ½g·t²</div>
+                <div class="formula-line formula-line--sub">F_drag = ½·Cd·ρ·A·V²</div>
+                <div class="formula-line formula-line--sub">ρ = 1.225 kg/m³ (空气密度)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 面板4: 版本对比 ===== -->
+      <section class="data-panel" id="panel-version" role="tabpanel" aria-labelledby="tab-version">
+        <div class="data-panel__header">
+          <h2 class="data-panel__title">
+            📈 版本数值对比
+          </h2>
+          <p class="data-panel__desc">追踪每个版本更新中武器的数值变化，了解版本环境变迁</p>
+        </div>
+
+        <!-- 版本选择器 -->
+        <div class="version-selector">
+          <label class="version-selector__label">对比版本</label>
+          <div class="version-selector__buttons" id="versionSelectorBtns" role="group" aria-label="版本选择">
+            <button class="version-btn active" data-version="v2.1">v2.1.0 → v2.0.0</button>
+            <button class="version-btn" data-version="v2.0">v2.0.0 → v1.5.0</button>
+            <button class="version-btn" data-version="v1.5">v1.5.0 → v1.0.0</button>
+          </div>
+        </div>
+
+        <!-- 版本变更概览卡片 -->
+        <div class="version-overview-grid" id="versionOverviewGrid">
+          <!-- JS动态渲染 -->
+        </div>
+
+        <!-- 详细变更表格 -->
+        <div class="table-wrapper version-table-wrapper">
+          <table class="table version-table" id="versionTable">
+            <thead>
+              <tr>
+                <th>武器</th>
+                <th>属性</th>
+                <th class="version-th-old">旧值</th>
+                <th>新值</th>
+                <th>变化量</th>
+                <th>变化类型</th>
+                <th>影响评估</th>
+              </tr>
+            </thead>
+            <tbody id="versionTableBody">
+              <!-- JS动态渲染 -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 版本日志 -->
+        <div class="version-changelog card" id="versionChangelog">
+          <h3 class="calc-panel-title">📋 版本更新日志</h3>
+          <div class="changelog-list" id="changelogList">
+            <!-- JS动态渲染 -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__section">
+          <h4 class="footer__section-title">导航</h4>
+          <a href="index.html" class="footer__link">首页</a>
+          <a href="maps.html" class="footer__link">战术地图</a>
+          <a href="weapons.html" class="footer__link">武器图鉴</a>
+          <a href="guides.html" class="footer__link">攻略文库</a>
+          <a href="articles.html" class="footer__link">攻略文章</a>
+          <a href="data.html" class="footer__link">数据中心</a>
+        </div>
+        <div class="footer__section">
+          <h4 class="footer__section-title">数据分析</h4>
+          <a href="#" class="footer__link" data-goto-tab="ttk">TTK排行榜</a>
+          <a href="#" class="footer__link" data-goto-tab="calculator">伤害计算器</a>
+          <a href="#" class="footer__link" data-goto-tab="ballistics">弹道模拟器</a>
+          <a href="#" class="footer__link" data-goto-tab="version">版本对比</a>
+        </div>
+        <div class="footer__section">
+          <h4 class="footer__section-title">关于</h4>
+          <a href="#" class="footer__link">关于本站</a>
+          <a href="#" class="footer__link">数据来源</a>
+          <a href="#" class="footer__link">更新日志</a>
+          <a href="#" class="footer__link">联系方式</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Delta Force Tactical Guide | 三角洲行动攻略站 &mdash;
+          <a href="index.html">返回首页</a> &middot;
+          <a href="weapons.html">武器图鉴</a> &middot;
+          <a href="data.html">数据中心</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+
+  <!-- JavaScript -->
+  <script src="js/components/navbar.js"></script>
+  <script type="module" src="js/data.js"></script>
+
+</body>
+</html>

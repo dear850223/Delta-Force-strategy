@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="三角洲行动新手入门指南 - 从零开始成为特种兵，掌握基础知识快速融入战场">
+  <title>新手入门指南：从零开始成为特种兵 | DELTA FORCE TACTICAL GUIDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/article-detail.css">
+
+  <style>
+    .article-content { line-height: 2; font-size: 16px; }
+    .article-content h2 { margin-top: 40px; margin-bottom: 20px; color: var(--color-primary); border-bottom: 2px solid var(--color-border); padding-bottom: 10px; }
+    .article-content h3 { margin-top: 30px; color: var(--color-text); }
+    .article-content p { margin-bottom: 20px; text-align: justify; }
+    .article-content ul, .article-content ol { margin-left: 30px; margin-bottom: 20px; }
+    .article-content li { margin-bottom: 10px; }
+    .article-content strong { color: var(--color-primary); }
+    .article-content .tip-box { background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,200,255,0.1)); border-left: 4px solid var(--color-accent); padding: 20px; margin: 30px 0; border-radius: 8px; }
+    .article-content .warning-box { background: linear-gradient(135deg, rgba(255,107,107,0.1), rgba(255,165,0,0.1)); border-left: 4px solid #ff6b6b; padding: 20px; margin: 30px 0; border-radius: 8px; }
+    .article-content code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-family: 'Share Tech Mono', monospace; color: var(--color-accent); }
+    .article-content table { width: 100%; border-collapse: collapse; margin: 20px 0; background: rgba(0,0,0,0.3); border-radius: 8px; overflow: hidden; }
+    .article-content th, .article-content td { padding: 12px; text-align: left; border-bottom: 1px solid var(--color-border); }
+    .article-content th { background: rgba(0,255,136,0.1); color: var(--color-primary); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="../index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="../index.html" class="navbar__link">首页</a></li>
+        <li><a href="../maps.html" class="navbar__link">战术地图</a></li>
+        <li><a href="../weapons.html" class="navbar__link">武器图鉴</a></li>
+        <li><a href="../guides.html" class="navbar__link active">攻略文库</a></li>
+        <li><a href="../articles.html" class="navbar__link">攻略文章</a></li>
+        <li><a href="../data.html" class="navbar__link">数据中心</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 面包屑导航 -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="../index.html">首页</a> / 
+      <a href="../guides.html">攻略文库</a> / 
+      <span>新手入门指南</span>
+    </div>
+  </div>
+
+  <!-- 文章主体 -->
+  <main class="article-detail section">
+    <div class="container">
+
+      <!-- 文章头部 -->
+      <header class="article-header">
+        <div class="article-header__meta">
+          <span class="tag tag--beginner">基础教学</span>
+          <span class="tag">初级难度</span>
+          <time datetime="2026-05-01">2026-05-01 发布</time>
+        </div>
+        
+        <h1 class="article-title">新手入门指南：从零开始成为特种兵</h1>
+        
+        <p class="article-subtitle">掌握基础知识，快速融入战场 - 8分钟阅读</p>
+
+        <div class="article-author">
+          <span class="article-author__avatar">🎖️</span>
+          <div>
+            <strong class="article-author__name">战术顾问</strong>
+            <p class="article-author__bio">10年FPS游戏经验，专注战术教学</p>
+          </div>
+        </div>
+
+        <div class="article-stats">
+          <span>👁️ 12.5K 阅读</span>
+          <span>⭐ 4.8 评分</span>
+          <span>💬 156 评论</span>
+        </div>
+      </header>
+
+      <!-- 文章目录 -->
+      <nav class="article-toc">
+        <h3>📚 文章目录</h3>
+        <ol>
+          <li><a href="#section-1">界面与操作基础</a></li>
+          <li><a href="#section-2">新手友好武器TOP5</a></li>
+          <li><a href="#section-3">基础移动与射击技巧</a></li>
+          <li><a href="#section-4">常见错误及纠正方法</a></li>
+          <li><a href="#section-5">前10小时成长路线规划</a></li>
+        </ol>
+      </nav>
+
+      <!-- 文章内容 -->
+      <article class="article-content">
+
+        <p>欢迎来到<strong>三角洲行动</strong>！无论你是FPS老手还是完全的新手，本指南都将帮助你快速掌握游戏基础，避免常见陷阱，在战场上生存并茁壮成长。让我们开始这段特种兵之旅吧！</p>
+
+        <!-- 第一章 -->
+        <h2 id="section-1">一、界面与操作基础</h2>
+        
+        <h3>1.1 HUD（抬头显示器）解读</h3>
+        <p>进入战场后，你会看到屏幕周围的各种信息显示。理解这些元素是生存的第一步：</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>元素位置</th>
+              <th>显示内容</th>
+              <th>重要程度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>左上角</strong></td>
+              <td>小地图、队伍状态、任务目标</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><strong>右上角</strong></td>
+              <td>击杀信息、回合/时间</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td><strong>底部中央</strong></td>
+              <td>弹药量、备弹数、当前武器</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><strong>准星</strong></td>
+              <td>扩散程度反映精准度</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td><strong>血条</strong></td>
+              <td>屏幕边缘红色表示受伤</td>
+              <td>★★★★☆</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tip-box">
+          <strong>💡 新手提示：</strong>养成习惯每2-3秒看一次小地图，这能让你提前发现敌人动向和队友位置。
+        </div>
+
+        <h3>1.2 推荐键位设置</h3>
+        <p>虽然默认键位已经不错，但以下调整能显著提升你的表现：</p>
+        
+        <ul>
+          <li><strong>鼠标灵敏度：</strong>建议DPI设置为800-1200，游戏内 sensitivity 3-5</li>
+          <li><strong>蹲伏键：</strong>改为<code>C</code>而非默认Ctrl，更易触达</li>
+          <li><strong>切换武器：</strong>使用数字键1-3而非滚轮，更快更准确</li>
+          <li><strong>自动奔跑：</strong>开启<code>自动冲刺</code>选项，按住Shift只用于战术冲刺</li>
+          <li><strong>音效设置：</strong>确保脚步声和枪声音量最大，关闭背景音乐</li>
+        </ul>
+
+        <h3>1.3 基础操作要领</h3>
+        <ol>
+          <li><strong>移动时保持准星预瞄头部高度</strong> - 不要总是看着地面</li>
+          <li><strong>使用掩体进行"peek"观察</strong> - 快速探身查看后缩回</li>
+          <li><strong>学会静步移动</strong> - 按住Ctrl缓慢移动不发出声音</li>
+          <li><strong>跳跃使用有目的性</strong> - 不要无意义地跳来跳去</li>
+          <li><strong>换弹时机选择</strong> - 在安全位置换弹，战斗中优先切手枪</li>
+        </ol>
+
+        <!-- 第二章 -->
+        <h2 id="section-2">二、新手友好武器TOP5</h2>
+        
+        <p>选择合适的武器是成功的一半。以下推荐适合新手的武器，它们容错率高、易于控制：</p>
+
+        <h3>🥇 第一名：M4A1 突击步枪</h3>
+        <ul>
+          <li><strong>解锁等级：</strong>Lv.1（初始解锁）</li>
+          <li><strong>伤害：</strong>78（中等偏高）</li>
+          <li><strong>后坐力：</strong>极易控制</li>
+          <li><strong>有效距离：</strong>中近距离（0-50米）</li>
+          <li><strong>推荐配件：</strong>补偿器 + 垂直握把 + 红点瞄准镜</li>
+          <li><strong>适用场景：</strong>几乎所有情况的全能武器</li>
+        </ul>
+        
+        <div class="tip-box">
+          <strong>为什么推荐M4A1？</strong>它的后坐力模式非常线性且可预测，即使不压枪也能保持不错的命中率。3-4发子弹就能击杀敌人，容错率极高。
+        </div>
+
+        <h3>🥈 第二名：MP5 冲锋枪</h3>
+        <ul>
+          <li><strong>解锁等级：</strong>Lv.2</li>
+          <li><strong>伤害：</strong>72（近战高）</li>
+          <li><strong>射速：</strong>极快（900 RPM）</li>
+          <li><strong>特点：</strong>室内作战之王</li>
+          <li><strong>推荐场景：</strong>建筑物内、狭窄走廊、CQC</li>
+        </ul>
+
+        <h3>🥉 第三名：UMP45 冲锋枪</h3>
+        <ul>
+          <li><strong>解锁等级：</strong>Lv.5</li>
+          <li><strong>伤害：</strong>75（稳定输出）</li>
+          <li><strong>后坐力：</strong>几乎无后坐力</li>
+          <li><strong>特点：</strong>.45口径停止力强，中距离依然有效</li>
+        </ul>
+
+        <h3>第四名：HK416 突击步枪</h3>
+        <ul>
+          <li><strong>解锁等级：</strong>Lv.10</li>
+          <li><strong>伤害：</strong>82（较高）</li>
+          <li><strong>精度：</strong>优秀</li>
+          <li><strong>特点：</strong>M4A1的升级版，更适合有一定基础玩家</li>
+        </ul>
+
+        <h3>第五名：M24 狙击步枪</h3>
+        <ul>
+          <li><strong>解锁等级：</strong>Lv.15</li>
+          <li><strong>伤害：</strong>98（一击必杀）</li>
+          <li><strong>特点：</strong>栓动狙击，需要精准瞄准</li>
+          <li><strong>适合：</strong>喜欢远距离作战、有耐心的玩家</li>
+        </ul>
+
+        <!-- 第三章 -->
+        <h2 id="section-3">三、基础移动与射击技巧</h2>
+
+        <h3>3.1 移动的艺术</h3>
+        <p>在三角洲行动中，如何移动往往比如何射击更重要：</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>移动方式</th>
+              <th>按键</th>
+              <th>用途</th>
+              <th>注意事项</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>正常行走</strong></td>
+              <td>WASD</td>
+              <td>常规移动</td>
+              <td>会发出声音</td>
+            </tr>
+            <tr>
+              <td><strong>静步</strong></td>
+              <td>Ctrl + WASD</td>
+              <td>隐蔽接近</td>
+              <td>速度慢但无声</td>
+            </tr>
+            <tr>
+              <td><strong>冲刺</strong></td>
+              <td>Shift（双击W）</td>
+              <td>快速转移</td>
+              <td>不能射击，声音大</td>
+            </tr>
+            <tr>
+              <td><strong>蹲伏</strong></td>
+              <td>C</td>
+              <td>减少受弹面积</td>
+              <td>提高稳定性</td>
+            </tr>
+            <tr>
+              <td><strong>卧倒</strong></td>
+              <td>Z</td>
+              <td>最高稳定性</td>
+              <td>移动极慢</td>
+            </tr>
+            <tr>
+              <td><strong>跳跃</strong></td>
+              <td>空格</td>
+              <td>跨越障碍</td>
+              <td>空中无法精确射击</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.2 射击基础</h3>
+        <p><strong>永远记住这个黄金法则：</strong></p>
+        <div style="text-align: center; font-size: 20px; font-weight: bold; color: var(--color-primary); margin: 30px 0;">
+          "停下来再开枪，不要边跑边射"
+        </div>
+        
+        <p>具体技巧包括：</p>
+        <ol>
+          <li><strong>预瞄：</strong>转角前将准星放在敌人可能出现的高度（头部位置）</li>
+          <li><strong>短点射：</strong>每次发射2-4发子弹，让准星回正后再射击</li>
+          <li><strong>压枪：</strong>当连续射击时，鼠标向下拉以抵消后坐力</li>
+          <li><strong>停顿射击：</strong>按下方向键后松开，等待0.2秒再开枪（精度瞬间提升）</li>
+          <li><strong>换弹节奏：</strong>不要打完所有子弹才换，剩15-20发时就找机会换弹</li>
+        </ol>
+
+        <div class="warning-box">
+          <strong>⚠️ 常见错误：</strong>看到人就慌乱地按住左键不放。这样会导致大量子弹浪费，准星扩散到脸大。学会控制射击节奏！
+        </div>
+
+        <!-- 第四章 -->
+        <h2 id="section-4">四、常见错误及纠正方法</h2>
+
+        <h3>❌ 错误1：总是直线冲锋</h3>
+        <p><strong>问题：</strong>沿着街道或走廊直线前进，成为狙击手的活靶子。<br>
+        <strong>纠正：</strong>采用"之字形"路线，利用掩体呈锯齿状推进。</p>
+
+        <h3>❌ 错误2：忽视小地图</h3>
+        <p><strong>问题：</strong>全程盯着前方，从不看小地图。<br>
+        <strong>纠正：</strong>建立肌肉记忆，每移动几步就扫一眼小地图。</p>
+
+        <h3>❌ 错误3：单独行动</h3>
+        <p><strong>问题：</strong>脱离队伍独自探索，被包围时无人支援。<br>
+        <strong>纠正：</strong>始终保持在队友2-3秒支援距离内，不要落单。</p>
+
+        <h3>❌ 错误4：贪刀追人</h3>
+        <p><strong>问题：</strong>击伤敌人后不顾一切追击，进入未知区域。<br>
+        <strong>纠正：</strong>除非确定安全或队友跟上，否则不要追击到陌生区域。</p>
+
+        <h3>❌ 错误5：固定站位太久</h3>
+        <p><strong>问题：</strong>在一个位置停留超过10秒，被敌人摸清位置。<br>
+        <strong>纠正：</strong>每杀敌或交火后立即转移位置（reposition）。</p>
+
+        <h3>❌ 错误6：不开语音沟通</h3>
+        <p><strong>问题：</strong>不开麦克风，不打字报点。<br>
+        <strong>纠正：</strong>至少学会报点："A点有敌人"、"二楼有人"</p>
+
+        <!-- 第五章 -->
+        <h2 id="section-5">五、前10小时成长路线规划</h2>
+
+        <p>按照这个计划训练，你将在10小时内超越80%的玩家：</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>时间段</th>
+              <th>训练重点</th>
+              <th>目标</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>0-2小时</strong></td>
+              <td>熟悉UI和基本操作</td>
+              <td>能流畅移动、换弹、切换武器</td>
+            </tr>
+            <tr>
+              <td><strong>2-4小时</strong></td>
+              <td>靶场练习</td>
+              <td>掌握M4A1的弹道和压枪</td>
+            </tr>
+            <tr>
+              <td><strong>4-6小时</strong></td>
+              <td>团队死斗模式</td>
+              <td>K/D达到0.8以上</td>
+            </tr>
+            <tr>
+              <td><strong>6-8小时</strong></td>
+              <td>学习一张地图</td>
+              <td>熟悉长弓溪谷的所有常用点位</td>
+            </tr>
+            <tr>
+              <td><strong>8-10小时</strong></td>
+              <td>尝试其他模式</td>
+              <td>理解占领模式和搜查摧毁规则</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tip-box">
+          <strong>🎯 终极建议：</strong>找一个愿意带你的朋友或者加入一个新手友好的战队。有个经验丰富的伙伴指导，进步速度是自学的3倍以上！
+        </div>
+
+        <hr style="margin: 50px 0; border: none; border-top: 1px solid var(--color-border);">
+
+        <h2>总结</h2>
+        <p>成为优秀的三角洲行动玩家不是一朝一夕的事，但掌握了这些基础知识，你已经超越了大多数纯新手。记住：<strong>耐心练习 > 盲目实战</strong>，多看高手录像，多思考为什么他们这样做。</p>
+        
+        <p>下一阶段，建议阅读我们的<strong><a href="tactical-positioning.html">战术站位与预瞄指南</a></strong>，进一步提升你的战斗技能！</p>
+
+        <p><strong>祝你在战场上好运，士兵！🎖️</strong></p>
+
+      </article><!-- /.article-content -->
+
+      <!-- 文章导航 -->
+      <nav class="article-nav">
+        <a href="../guides.html" class="btn btn--secondary">← 返回攻略文库</a>
+        <a href="weapon-guide-m4a1.html" class="btn btn--primary">下一篇：M4A1完全手册 →</a>
+      </nav>
+
+      <!-- 相关文章推荐 -->
+      <aside class="related-articles">
+        <h3>📖 相关攻略推荐</h3>
+        <div class="related-grid">
+          <a href="weapon-guide-m4a1.html" class="related-card">
+            <span class="related-card__category">武器专精</span>
+            <h4 class="related-card__title">M4A1完全手册</h4>
+            <p class="related-card__excerpt">全面解析M4A1的最佳配装方案</p>
+          </a>
+          <a href="tactical-positioning.html" class="related-card">
+            <span class="related-card__category">进阶战术</span>
+            <h4 class="related-card__title">战术站位与预瞄</h4>
+            <p class="related-card__excerpt">提升生存率的关键技能</p>
+          </a>
+          <a href="mode-guide-domination.html" class="related-card">
+            <span class="related-card__category">模式专精</span>
+            <h4 class="related-card__title">占领模式指南</h4>
+            <p class="related-card__excerpt">点位控制的艺术</p>
+          </a>
+        </div>
+      </aside>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>
+          © 2026 Delta Force Tactical Guide | 
+          <a href="#">隐私政策</a> · 
+          <a href="#">联系我们</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
