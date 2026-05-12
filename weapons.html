@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="三角洲行动武器图鉴 - 收录全武器深度攻略文章，包括突击步枪、冲锋枪、狙击枪、霰弹枪等完整攻略指南">
+  <title>武器图鉴 | DELTA FORCE TACTICAL GUIDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/articles.css">
+
+  <style>
+    .weapons-hero {
+      background: linear-gradient(135deg, rgba(0,255,65,0.1) 0%, rgba(0,212,255,0.05) 100%);
+      border-bottom: 2px solid var(--color-border);
+      padding: 60px 0;
+      margin-bottom: 40px;
+    }
+    .weapons-hero__content { text-align: center; }
+    .weapons-hero__title {
+      font-size: 48px; font-weight: 800; color: var(--color-primary);
+      margin: 0 0 15px 0; letter-spacing: 2px;
+    }
+    .weapons-hero__icon { font-size: 64px; margin-bottom: 20px; display: block; }
+    .weapons-hero__subtitle {
+      font-size: 18px; color: var(--color-text-muted); margin: 0 0 30px 0;
+    }
+    .weapons-hero__stats {
+      display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
+    }
+    .weapons-hero__stat { text-align: center; }
+    .weapons-hero__stat-value {
+      display: block; font-size: 36px; font-weight: 700; color: var(--color-primary);
+    }
+    .weapons-hero__stat-label {
+      font-size: 14px; color: var(--color-text-muted); text-transform: uppercase;
+    }
+
+    .weapon-card {
+      background: rgba(0,0,0,0.4); border: 1px solid var(--color-border); border-radius: 12px;
+      padding: 24px; transition: all 0.3s ease; height: 100%;
+    }
+    .weapon-card:hover {
+      transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,255,65,0.15);
+      border-color: var(--color-accent);
+    }
+    .weapon-card__header {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .weapon-card__type {
+      padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+      background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1));
+      color: #ff6b6b; border: 1px solid rgba(255,107,107,0.3);
+    }
+    .weapon-card__tier {
+      padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+      background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));
+      color: #ffd700; border: 1px solid rgba(255,215,0,0.3);
+    }
+    .weapon-card__title {
+      margin: 0 0 12px 0; font-size: 22px; line-height: 1.4; font-weight: 700;
+    }
+    .weapon-card__title a {
+      color: var(--color-text); text-decoration: none; transition: color 0.2s;
+    }
+    .weapon-card__title a:hover { color: var(--color-primary); }
+    .weapon-card__desc {
+      color: var(--color-text-muted); font-size: 15px; line-height: 1.7;
+      margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .weapon-card__features {
+      display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .weapon-card__feature {
+      font-size: 12px; padding: 4px 10px; background: rgba(0,212,255,0.1);
+      color: #00d4ff; border-radius: 6px; font-weight: 500;
+    }
+    .weapon-card__meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--color-text-muted); padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .weapons-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 28px; margin-top: 30px;
+    }
+    @media (max-width: 768px) { .weapons-grid { grid-template-columns: 1fr; } }
+
+    .category-filter {
+      display: flex; flex-wrap: wrap; gap: 12px; margin: 35px 0; justify-content: center;
+    }
+    .filter-btn {
+      padding: 12px 24px; border-radius: 25px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent;
+      background: rgba(255,255,255,0.05); color: var(--color-text-muted);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,200,255,0.2));
+      color: var(--color-primary); border-color: var(--color-accent);
+    }
+
+    .section-intro {
+      text-align: center; max-width: 800px; margin: 0 auto 40px auto;
+      color: var(--color-text-muted); font-size: 16px; line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar__container">
+      <a href="index.html" class="navbar__logo">
+        <svg class="navbar__logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>DELTA FORCE</span>
+      </a>
+
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="index.html" class="navbar__link">首页</a></li>
+        <li><a href="maps.html" class="navbar__link">战术地图</a></li>
+        <li><a href="weapons.html" class="navbar__link active">武器图鉴</a></li>
+        <li><a href="articles.html" class="navbar__link">攻略文章</a></li>
+      </ul>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 页面头部 -->
+  <header class="weapons-hero">
+    <div class="container">
+      <div class="weapons-hero__content">
+        <span class="weapons-hero__icon">🔫</span>
+        <h1 class="weapons-hero__title">武器图鉴</h1>
+        <p class="weapons-hero__subtitle">
+          全武器深度攻略 &middot; S9赛季版本 &middot; 实战数据驱动
+        </p>
+
+        <div class="weapons-hero__stats">
+          <div class="weapons-hero__stat">
+            <span class="weapons-hero__stat-value">11</span>
+            <span class="weapons-hero__stat-label">篇武器攻略</span>
+          </div>
+          <div class="weapons-hero__stat">
+            <span class="weapons-hero__stat-value">6</span>
+            <span class="weapons-hero__stat-label">种武器类型</span>
+          </div>
+          <div class="weapons-hero__stat">
+            <span class="weapons-hero__stat-value">S9</span>
+            <span class="weapons-hero__stat-label">赛季版本</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="section">
+    <div class="container">
+
+      <p class="section-intro">
+        精选武器深度攻略，涵盖配件搭配、后坐力控制、实战技巧等全方位指南。
+        每篇文章均基于S9赛季最新数据，助你快速掌握每款武器的核心玩法。
+      </p>
+
+      <!-- 分类筛选 -->
+      <div class="category-filter">
+        <button class="filter-btn active" data-category="all">全部武器 (11)</button>
+        <button class="filter-btn" data-category="ar">突击步枪 (4)</button>
+        <button class="filter-btn" data-category="smg">冲锋枪 (2)</button>
+        <button class="filter-btn" data-category="sniper">狙击步枪 (2)</button>
+        <button class="filter-btn" data-category="shotgun">霰弹枪 (1)</button>
+        <button class="filter-btn" data-category="lmg">轻机枪 (1)</button>
+        <button class="filter-btn" data-category="pistol">手枪 (1)</button>
+      </div>
+
+      <!-- 武器卡片网格 -->
+      <div class="weapons-grid" id="weaponsGrid">
+
+        <!-- K416 突击步枪 -->
+        <article class="weapon-card" data-category="ar">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">突击步枪</span>
+            <span class="weapon-card__tier">T0 强势</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-003.html">K416突击步枪完全攻略</a>
+          </h2>
+          <p class="weapon-card__desc">
+            K416是S9赛季T0级突击步枪，全能首选武器。核心配件：沙暴垂直补偿器（-18%垂直后坐）+精英重型枪管（+20%射程）+共振三代握把（-25%水平晃动）。适用场景：零号大坝巷战、长弓溪谷中距离压制。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">高稳定性</span>
+            <span class="weapon-card__feature">全能型</span>
+            <span class="weapon-card__feature">易上手</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.4分 · 👁️ 11.3K阅读</span>
+          </div>
+        </article>
+
+        <!-- M4A1 突击步枪 -->
+        <article class="weapon-card" data-category="ar">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">突击步枪</span>
+            <span class="weapon-card__tier">T0 强势</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/weapon-guide-m4a1.html">M4A1突击步枪完全攻略</a>
+          </h2>
+          <p class="weapon-card__desc">
+            M4A1是经典突击步枪代表，均衡性能优秀。推荐改装方案：补偿器+长枪管+垂直握把。在中近距离作战表现出色，适合多种战术场景。详细的后坐力控制技巧和配件选择指南。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">均衡型</span>
+            <span class="weapon-card__feature">经典款</span>
+            <span class="weapon-card__feature">多用途</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.6分 · 👁️ 15.2K阅读</span>
+          </div>
+        </article>
+
+        <!-- AK系列 -->
+        <article class="weapon-card" data-category="ar">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">突击步枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-004.html">AK系列突击步枪攻略</a>
+          </h2>
+          <p class="weapon-card__desc">
+            AK系列以高伤害著称，但后坐力较大。核心技巧：点射控枪、压枪练习、配件优化。推荐用于中远距离交战，一发入魂的快感。掌握AK系列将显著提升你的单兵作战能力。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">高伤害</span>
+            <span class="weapon-card__feature">需要技巧</span>
+            <span class="weapon-card__feature">中远距离</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.3分 · 👁️ 9.8K阅读</span>
+          </div>
+        </article>
+
+        <!-- QBZ -->
+        <article class="weapon-card" data-category="ar">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">突击步枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-005.html">QBZ突击步枪实战指南</a>
+          </h2>
+          <p class="weapon-card__desc">
+            QBZ是中国制式突击步枪，在游戏中表现稳定。特点：可控性强、射速适中、适合持续输出。推荐新手入门使用，也是老玩家的可靠备选。详细的配件搭配和实战应用技巧。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">易控制</span>
+            <span class="weapon-card__feature">稳定输出</span>
+            <span class="weapon-card__feature">新手友好</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.2分 · 👁️ 8.5K阅读</span>
+          </div>
+        </article>
+
+        <!-- MP5 冲锋枪 -->
+        <article class="weapon-card" data-category="smg">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">冲锋枪</span>
+            <span class="weapon-card__tier">T0 强势</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-006.html">MP5冲锋枪近战之王</a>
+          </h2>
+          <p class="weapon-card__desc">
+            MP5是近战作战利器，高射速+低后坐力=室内清房神器。核心优势：转角快、反应快、压制强。最佳使用距离：15米内。配合身法和预瞄，成为CQB区域的主宰者。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">高射速</span>
+            <span class="weapon-card__feature">近战王者</span>
+            <span class="weapon-card__feature">低后坐力</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.7分 · 👁️ 18.6K阅读</span>
+          </div>
+        </article>
+
+        <!-- UMP45 -->
+        <article class="weapon-card" data-category="smg">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">冲锋枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-007.html">UMP45冲锋枪稳定之选</a>
+          </h2>
+          <p class="weapon-card__desc">
+            UMP45以稳定性著称，.45口径子弹伤害可观。适合喜欢稳扎稳打的玩家，在中近距离都有不错表现。配件选择灵活，可根据个人风格调整。跑刀玩家的最爱之一。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">超高稳定</span>
+            <span class="weapon-card__feature">高伤害</span>
+            <span class="weapon-card__feature">跑刀必备</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.4分 · 👁️ 12.3K阅读</span>
+          </div>
+        </article>
+
+        <!-- AWM 狙击枪 -->
+        <article class="weapon-card" data-category="sniper">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">狙击步枪</span>
+            <span class="weapon-card__tier">T0 强势</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-008.html">AWM狙击枪一击必杀</a>
+          </h2>
+          <p class="weapon-card__desc">
+            AWM是狙击手的梦想武器，一击必杀的威力令人胆寒。核心要点：选位、预瞄、时机把握。在长弓溪谷等开阔地图如鱼得水。需要耐心和精准，回报是收割的快乐。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">超高伤害</span>
+            <span class="weapon-card__feature">一击必杀</span>
+            <span class="weapon-card__feature">远程打击</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.8分 · 👁️ 22.1K阅读</span>
+          </div>
+        </article>
+
+        <!-- SVD -->
+        <article class="weapon-card" data-category="sniper">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">狙击步枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-009.html">SVD半自动狙击步枪</a>
+          </h2>
+          <p class="weapon-card__desc">
+            SVD半自动狙击步枪，连发能力出色。相比栓动狙击更灵活，适合多目标快速清除。中远距离都能发挥威力，是狙击手的多面手。容错率较高，适合进阶狙击玩家。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">半自动</span>
+            <span class="weapon-card__feature">灵活多变</span>
+            <span class="weapon-card__feature">容错率高</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.5分 · 👁️ 14.7K阅读</span>
+          </div>
+        </article>
+
+        <!-- SPAS-12 霰弹枪 -->
+        <article class="weapon-card" data-category="shotgun">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">霰弹枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-010.html">SPAS-12霰弹枪破门专家</a>
+          </h2>
+          <p class="weapon-card__desc">
+            SPAS-12是近战终结者，一枪轰飞敌人的爽快感无与伦比。核心用法：卡点蹲守、转角遭遇、破门突入。虽然射程有限，但在正确场景下就是无敌的存在。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">超高爆发</span>
+            <span class="weapon-card__feature">近战无敌</span>
+            <span class="weapon-card__feature">破门利器</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.3分 · 👁️ 11.9K阅读</span>
+          </div>
+        </article>
+
+        /* M249 轻机枪 */
+        <article class="weapon-card" data-category="lmg">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">轻机枪</span>
+            <span class="weapon-card__tier">T1 推荐</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-011.html">M249轻机枪火力压制</a>
+          </h2>
+          <p class="weapon-card__desc">
+            M249是移动的火力堡垒，大弹容量+高持续输出=压制力拉满。适合阵地防守、火力掩护、消耗战。团队作战中的关键角色，能创造绝佳的进攻机会。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">大弹容</span>
+            <span class="weapon-card__feature">持续输出</span>
+            <span class="weapon-card__feature">火力压制</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.2分 · 👁️ 9.4K阅读</span>
+          </div>
+        </article>
+
+        <!-- 沙漠之鹰 手枪 -->
+        <article class="weapon-card" data-category="pistol">
+          <div class="weapon-card__header">
+            <span class="weapon-card__type">手枪</span>
+            <span class="weapon-card__tier">T2 特色</span>
+          </div>
+          <h2 class="weapon-card__title">
+            <a href="guides/article-012.html">沙漠之鹰副武器之王</a>
+          </h2>
+          <p class="weapon-card__desc">
+            沙漠之鹰是最强副武器，近距离伤害堪比主武器。当主武器弹药耗尽时的救命稻草，也能作为特殊战术选择。高难度高回报，适合追求极致的玩家挑战。
+          </p>
+          <div class="weapon-card__features">
+            <span class="weapon-card__feature">高伤害</span>
+            <span class="weapon-card__feature">副武器</span>
+            <span class="weapon-card__feature">应急保命</span>
+          </div>
+          <div class="weapon-card__meta">
+            <span>📅 2026-05-10</span>
+            <span>⭐ 4.1分 · 👁️ 7.8K阅读</span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 底部导航提示 -->
+  <section style="background: rgba(0,0,0,0.3); padding: 40px 0; margin-top: 60px;">
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 18px; color: var(--color-text-muted); margin: 0 0 20px 0;">
+        🎯 想要查看更多攻略文章？
+      </p>
+      <a href="articles.html" style="
+        display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #00ff41, #00d4ff);
+        color: #000; text-decoration: none; border-radius: 30px; font-weight: 700;
+        font-size: 16px; transition: transform 0.2s;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        浏览全部 100+ 篇攻略文章 →
+      </a>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 DELTA FORCE TACTICAL GUIDE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const category = this.dataset.category;
+        document.querySelectorAll('.weapon-card').forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
